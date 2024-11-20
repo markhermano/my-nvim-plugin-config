@@ -3,8 +3,14 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")     -- move line up(n)
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")     -- move line down(n)
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
-
+vim.keymap.set('n', '<leader>cp', function()
+  local root = vim.fn.getcwd()
+  local file_path = vim.fn.expand('%:p')
+  local relative_path = vim.fn.fnamemodify(file_path, ':~:.'):gsub('^' .. vim.fn.escape(root, '\\') .. '/', '')
+  vim.fn.setreg('+', relative_path)
+  print('Copied relative path: ' .. relative_path)
+end, { desc = 'Copy relative path from root' }) -- copy file relative path
