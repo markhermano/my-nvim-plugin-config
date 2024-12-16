@@ -14,3 +14,4 @@ vim.keymap.set('n', '<leader>cp', function()
   vim.fn.setreg('+', relative_path)
   print('Copied relative path: ' .. relative_path)
 end, { desc = 'Copy relative path from root' }) -- copy file relative path
+vim.keymap.set('n', '<leader>bda', ":%bd|e#|bd#<CR>")
