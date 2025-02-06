@@ -8,6 +8,9 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		nvimtree.setup({
+      update_focused_file = {
+        enable = true
+      },
 			view = {
 				width = 35,
 				relativenumber = false,
