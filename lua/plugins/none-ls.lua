@@ -13,6 +13,7 @@ return {
 				null_ls.builtins.formatting.rubocop,
 				null_ls.builtins.formatting.prettier,
 				require("none-ls.diagnostics.eslint"),
+        require("none-ls.diagnostics.flake8")
 			},
 		})
 
